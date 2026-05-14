@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================= BASE ================= */
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-white text-gray-900;
+}
+
+/* ================= COLORS ================= */
+
+:root {
+  --deep-blue: #0f2a5a;
+  --aqua: #00e0ff;
+  --lavender: #a78bfa;
+}
+
+/* ================= GRADIENTS ================= */
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f7ff 40%, #f5f3ff 100%);
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #00e0ff, #a78bfa);
+}
+
+.bg-gradient-deep {
+  background: linear-gradient(135deg, #0f2a5a, #1e3a8a);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00e0ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= GLASS EFFECT ================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ================= SHADOWS ================= */
+
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(0, 224, 255, 0.35);
+}
+
+.shadow-aqua {
+  box-shadow: 0 10px 30px rgba(0, 224, 255, 0.25);
+}
+
+.shadow-elegant {
+  box-shadow: 0 20px 60px rgba(15, 42, 90, 0.2);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ================= ANIMATION CLASSES ================= */
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease forwards;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* ================= UTILITIES ================= */
+
+.text-deep-blue {
+  color: var(--deep-blue);
+}
+
+.text-aqua {
+  color: var(--aqua);
+}
+
+.text-lavender {
+  color: var(--lavender);
+}
+
+.bg-aqua {
+  background-color: var(--aqua);
+}
+
+.bg-lavender {
+  background-color: var(--lavender);
+}
+
+/* ================= CUSTOM FONT ================= */
+
+.font-display {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+} 
