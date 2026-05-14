@@ -1,19 +1,37 @@
+import { Link } from "react-router-dom";
 import logo from "/ternion-logo.png";
 
 const LINKS = {
-  Product: ["Solutions", "Technology", "Pricing", "Case studies"],
-  Company: ["About", "Impact", "Careers", "Press"],
-  Resources: ["Docs", "API", "Support", "Privacy"],
+  Product: [
+    { label: "Solutions", path: "/solutions" },
+    { label: "Technology", path: "#" },
+    { label: "Pricing", path: "/contact" },
+    { label: "Case studies", path: "/about" },
+  ],
+
+  Company: [
+    { label: "About", path: "/about" },
+    { label: "Impact", path: "/impact" },
+    { label: "Careers", path: "#" },
+    { label: "Press", path: "#" },
+  ],
+
+  Resources: [
+    { label: "Docs", path: "#" },
+    { label: "", path: "#" },
+    { label: "Support", path: "/contact" },
+    { label: "Privacy", path: "#" },
+  ],
 };
 
 export function Footer() {
   return (
     <footer className="relative mt-0 text-white overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-cyan-900">
-      
-      {/* Top Wave (FIXED GAP) */}
+
+      {/* Top Wave */}
       <svg
         viewBox="0 0 1440 80"
-        className="block w-full h-16 text-white -mt-16" // ✅ KEY FIX
+        className="block w-full h-16 text-white -mt-16"
         preserveAspectRatio="none"
       >
         <path
@@ -24,19 +42,27 @@ export function Footer() {
 
       {/* Background glow */}
       <div className="absolute top-20 -right-20 h-72 w-72 rounded-full bg-purple-400/20 blur-3xl" />
+
       <div className="absolute bottom-0 -left-20 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
+
         {/* Logo Section */}
         <div>
-          <div className="flex items-center gap-2.5">
-            <img src={logo} alt="Ternion" className="h-10 w-10" />
-            <span className="text-xl font-bold">Ternion</span>
+
+          {/* LOGO BOX */}
+          <div className="inline-flex items-center bg-white rounded-xl px-5 py-1 shadow-lg">
+
+            <img
+              src={logo}
+              alt="Ternion"
+              className="h-12 w-auto object-contain"
+            />
+
           </div>
 
-          <p className="mt-4 text-sm text-white/70">
+          <p className="mt-5 text-sm text-white/70 leading-relaxed max-w-xs">
             Building smarter water systems for a better world.
           </p>
 
@@ -50,9 +76,9 @@ export function Footer() {
               <a
                 key={i}
                 href="#"
-                className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-cyan-400/40 transition"
+                className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cyan-400/40 transition"
               >
-                <svg width="14" height="14" fill="currentColor">
+                <svg width="15" height="15" fill="currentColor">
                   <path d={d} />
                 </svg>
               </a>
@@ -63,38 +89,49 @@ export function Footer() {
         {/* Links */}
         {Object.entries(LINKS).map(([title, items]) => (
           <div key={title}>
-            <div className="text-sm font-semibold mb-4">{title}</div>
+
+            <div className="text-sm font-semibold mb-4">
+              {title}
+            </div>
+
             <ul className="space-y-2.5">
-              {items.map((it) => (
-                <li key={it}>
-                  <a
-                    href="#"
+              {items.map((item) => (
+                <li key={item.label}>
+
+                  <Link
+                    to={item.path}
                     className="text-sm text-white/60 hover:text-cyan-300 transition"
                   >
-                    {it}
-                  </a>
+                    {item.label}
+                  </Link>
+
                 </li>
               ))}
             </ul>
+
           </div>
         ))}
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
+
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/50">
-          
+
           <div>
             © {new Date().getFullYear()} Ternion. All rights reserved.
           </div>
 
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white">
+
+            <Link to="/privacy" className="hover:text-white">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white">
+            </Link>
+
+            <Link to="/terms" className="hover:text-white">
               Terms
-            </a>
+            </Link>
+
           </div>
 
         </div>
