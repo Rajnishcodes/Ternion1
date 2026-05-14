@@ -11,8 +11,8 @@ import {
 import { Footer } from "./components/Footer";
 
 /* ✅ IMPORT YOUR PRODUCTS PAGE */
-import Products from "./pages/products"; 
-import Contact from "./pages/contact"; 
+import Products from "./pages/Products"; 
+import Contact from "./pages/Contact"; 
 import About from "./pages/About";
 import SolutionsPage from "./pages/Solution";
 
